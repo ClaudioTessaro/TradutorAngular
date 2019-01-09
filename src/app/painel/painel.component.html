@@ -1,0 +1,45 @@
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-6">
+                    <!-- Aqui, estamos fazendo o seguinte. Estamos inputando no componente progresso, o parametro progresso do componente painel. Aqui, estamos enviando valores do componente pai para o componente filho -->
+                    <app-progresso [progresso]="progresso"></app-progresso>  
+                
+            </div>
+            <div class="col-sm-6">
+                <div class="d-flex justify-content-end">
+                    <app-tentativas [tentativas]="tentativas"></app-tentativas>
+                </div>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h6>{{ instrucao }}</h6>
+                <p>{{ rodadaFrase.fraseEng }}</p>
+ <!-- $event captura o estado do html no DOM quando o evento é disparado -->
+                <div class="form-group">
+                    <textarea class="form-control" rows="5" (input)="atualizaResposta($event)" [value]="resposta"></textarea>
+                </div>
+            </div>
+          
+        </div>
+        <div class="row">
+            <div class="col">
+                <!-- <div *ngIf= " tentativas != 0 " >   -->
+                    <div class="d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" (click)="verificarResposta()">Verificar</button>
+                    </div>
+                <!-- </div> 
+                <div *ngIf= " tentativas == 0 " >  
+                    Estamos verificando se existe tentativas, caso nao exista, o verificar é desabilitado
+                        <div class="d-flex justify-content-end">
+                            <button type="button" class="btn btn-primary" (click)="desabilitarVerificar($event)">Verificar</button>
+                        </div>
+                    </div>  -->
+                
+            </div>
+        </div>
+    </div>
+</div>
+
